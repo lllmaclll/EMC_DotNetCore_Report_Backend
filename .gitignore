@@ -1,0 +1,77 @@
+#############################
+# .gitignore for C# Projects
+# with Visual Studio support
+#############################
+
+# Build results
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+*.log
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio working folder
+.vs/
+
+# Rider / ReSharper / JetBrains
+.idea/
+*.DotSettings.user
+
+# Backup & local config
+*.bak
+*.tmp
+*.temp
+
+# Local DB
+*.mdf
+*.ldf
+*.db
+*.sqlite
+
+# Publish output
+publish/
+out/
+
+# ASP.NET Secrets (if using Secret Manager)
+secrets.json
+
+# Configuration files (production secrets)
+appsettings.Production.json
+
+# Others
+*.ncrunch*
+*.localhistory
+*.vscode/
+*.swp
+*.DS_Store
+Thumbs.db
+
+# Node.js (if using in Blazor or ASP.NET Core with frontend)
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Dependency packages (if restoring from NuGet)
+packages/
+project.lock.json
+project.fragment.lock.json
+
+# Mac specific
+.DS_Store
+
+# Windows specific
+desktop.ini
+$RECYCLE.BIN/
+
+# Logs
+*.log
+
+##########################
+# End of .gitignore file
+##########################

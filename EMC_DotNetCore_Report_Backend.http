@@ -1,0 +1,6 @@
+@EMC_DotNetCore_Report_Backend_HostAddress = http://localhost:5087
+
+GET {{EMC_DotNetCore_Report_Backend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
