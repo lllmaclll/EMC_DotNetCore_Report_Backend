@@ -250,4 +250,11 @@ public class ReportEmarSLHController : ControllerBase // ControllerBase: เป�
             return Ok(File(pdfData, contentType: "application/pdf")); // Return the PDF file as a response
         }
     }
+
+    [HttpGet("test")] // Define a test endpoint
+    // [HttpGet(Name = "GetWeatherForecast")] // เมื่อเรียก GET /api/report/test API นี้จะทำงาน (คล้ายกับ main() ในภาษาอื่น ๆ)
+    public IActionResult test()
+    {
+        return Ok("test");
+    }
 }
