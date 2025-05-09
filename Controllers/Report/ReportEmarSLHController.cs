@@ -18,12 +18,14 @@ public class ReportEmarSLHController : ControllerBase // ControllerBase: เป�
    
     private readonly ILogger<ReportEmarSLHController> _logger; // _logger: สำหรับบันทึก log (เช่น error หรือข้อมูล debug)
     private readonly IMysqlConnection _mysqlConnection; // _mysqlConnection: interface ที่ใช้เรียก MySQL (ถูก implement ใน mysqlConnection class)
+    private readonly IConfiguration _Config; // _connectionString: สำหรับเก็บ connection string ของ MySQL
 
     // constructor นี้ใช้ Dependency Injection ให้ _logger และ _mysqlConnection เข้ามาอัตโนมัติ
-    public ReportEmarSLHController(ILogger<ReportEmarSLHController> logger, IMysqlConnection mysqlConnection)
+    public ReportEmarSLHController(ILogger<ReportEmarSLHController> logger, IMysqlConnection mysqlConnection,IConfiguration configuration)
     {
         _logger = logger; // Assign logger to the private field
         _mysqlConnection = mysqlConnection; // Assign MySQL connection to the private field
+        _Config = configuration; // Assign configuration to the private field
     }
 
         [HttpGet("{format}/get-report-emar")]
@@ -41,7 +43,7 @@ public class ReportEmarSLHController : ControllerBase // ControllerBase: เป�
         //[HttpGet(Name = "GetWeatherForecast")] // เมื่อเรียก GET /api/report API นี้จะทำงาน (คล้ายกับ main() ในภาษาอื่น ๆ)
         //public async Task<IActionResult> Get()
         //{
-        string filepath = "C:\\Users\\pgm_n\\OneDrive\\Desktop\\EMC_DotNetCore_Report_Backend\\ReportDefinitions\\report-emar-slh.rdl"; // path to your .rdl file
+        string filepath = _Config["pathReport:path"]; // path to your .rdl file
         DataTable dt_PtHeader = new DataTable(); // Create dataTable for patient header
         DataTable dt_PtOrderReport = new DataTable(); // Create dataTable for patient order report
         DataTable dt_PtOrderRecord = new DataTable(); // Create dataTable for patient order record
